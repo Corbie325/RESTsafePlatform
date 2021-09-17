@@ -1,0 +1,52 @@
+spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.postgresql.Driver
+    #url: jdbc:postgresql://localhost:5432/safePlatform
+    url: jdbc:postgresql://90.189.217.244:5432/safePlatform
+    username: postgres
+    password: 123
+    hikari:
+      pool-name: fl-pool
+      minimum-idle: 5
+      idle-timeout: 0
+      maximum-pool-size: 16
+      connection-timeout: 5000
+      max-lifetime: 6000
+  jpa:
+    database: POSTGRESQL
+    #show-sql: true
+    generate-ddl: false
+    hibernate:
+      use-new-id-generator-mappings: true
+#      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        #        generate_statistics: true
+        default_schema: "mobile_app"
+#    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+
+logging:
+  level:
+    ru.autoconnex.service: TRACE
+
+server:
+  thread-task-send-messages: 10
+  port: 7171
+  secret: "safe"
+  header: "Authorization"
+  expiration: 604800
+#  number-of-thresads: 10
+#  inet-host: "192.168.0.18"
+smail:
+  host: "smtp.mail.ru"
+  username: "sawa_kawtira123@mail.ru"
+  password: "cfif9912saqwe"
+  port: 465
+  protocol: "smtps"
+  debug: true
+
